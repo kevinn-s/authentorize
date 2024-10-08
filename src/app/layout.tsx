@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Provider from "./_Provider";
+import { AuthContext, AuthProvider } from "./context/AuthContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,10 +32,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+   
+      
         <Provider>
+          <AuthProvider>
            {children}
+           </AuthProvider>
         </Provider>
-       
+
       </body>
     </html>
   );
